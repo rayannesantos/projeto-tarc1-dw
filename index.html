@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- SLICK CAROUSEL --> 
+      <!-- não funciona direto localmente, então é preciso pegar na pasta-->
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
+    <link rel="stylesheet" type="text/css" href="slick/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick/slick-theme.css">
+
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+
+
+	<script>
+        //RELÓGIO - ATIVIDADE 1
+        function movimenta_relogio(){
+            const graus = 6;
+            /* Retorna o primeiro elemento dentro do documento (usando ordenação
+               em profundidade, pré-ordenada e transversal dos nós do documento) 
+               que corresponde ao grupo especificado de seletores. */
+            const sg   = document.querySelector(".seg");
+            let   data = new Date();
+            let   ss   = data.getSeconds() * graus;
+            /* A Propriedade CSS transform permite modificar o espaço coordenado do modelo de
+               formatação CSS. Usando-a, elementos podem ser traduzidos, rotacionados, ter seu
+               tamanho ajustado e inclinados de acordo com os valores definidos. */
+            sg.style.transform = `rotateZ(${ss}deg)`;
+        
+            //  pegar minutos
+            const mn   = document.querySelector(".min");
+            let mm = data.getMinutes () * graus  + (ss/60) ;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+
+            /*pegar hora*/
+            const grauHora = 30
+            const hr   = document.querySelector(".horas");
+            let hh = data.getHours () * grauHora +  (mm/12);
+             hr.style.transform = `rotateZ(${hh}deg)`;
+
+
+            //  MUDAR FUNDO CONFORME AS HORAS
+            let hora = (data.getHours() + 11) % 12 +1; //hora de 1 a 12
+            // hora = 3;
+            let fundo = $('.relogio');
+            let sinopse = $('.sinopse');
+            let url = '';
+            switch (hora) {
+                case 1:
+                    url = 'img/clock01.jpg';
+                    sinopse.text('oi')
+                    break;
+
+                case 2:
+                    url = 'img/clock02.jpg';
+                    break;
+
+                case 3:
+                    url = 'img/clock03.jpg';
+                    break;
+
+                    case 4:
+                    url = 'img/clock04.jpg';
+                    break;
+                
+
+                case 5:
+                    url = 'img/clock05.png';
+                    break;
+                
+                    case 6:
+                    url = 'img/clock06.jpg';
+                    break;
+
+                    case 7:
+                    url = 'img/clock07.jpg';
+                    break;
+
+                    case 8:
+                    url = 'img/clock08.jpg';
+                    break;
+
+                    case 9:
+                    url = 'img/clock09.jpg';
+                    break;
+
+                    case 10:
+                    url = 'img/clock10.jpg';
+                    break;
+
+                    case 11:
+                    url = 'img/clock11.jpg';
+                    break;
+
+                    case 12:
+                    url = 'img/clock12.jpg';
+                    break;
+            
+                default:
+                    url = 'img/clock12.jpg';
+                    break;
+            }
+
+
+            fundo.css('background-image','url(' + url + ')');
+
+        }    
+        </script>
+        
+</head>
+
+<!-- onload -  JOGO DA FORCA - ATIVIDADE 3 -->
+<body onLoad="init();"> 
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#slick">Slick</a></li> <!--Atividade 5-->
+                <li> <a href="#relogio">Relógio</a></li> <!--Atividade 1-->
+                <li><a href="#memoria">Jogo da Memória</a></li> <!--Atividade 2-->
+                <li><a href="#forca">Jogo da Forca</a></li> <!--Atividade 3-->
+                <li><a href="#wordle">Wordle</a></li> <!--Atividade 4-->
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <section class="sliders" id="slick">
+            <div class="slider-02"></div>
+            <div class="slider-01"></div>
+            <!-- <div class="slider-03"></div> -->
+        </section>
+
+
+        <section class="relogio-section" id="relogio">
+            <!--ATIVIDADE 1 -->
+
+
+   
+
+            <div class="relogio">
+
+                <div class="horas">
+                </div>
+                <div class="min"></div>
+                <div class="seg"></div>
+
+            </div>
+
+            <script>
+                setInterval(movimenta_relogio, 1000);
+            </script>
+        </section>
+
+
+        <!-- JOGO DA MEMÓRIA -->
+        <section class="memoria-section"  id="memoria"> 
+              <!-- ATIVIDADE 2 -->
+                <h1>JOGO DA MEMORIA</h1>
+
+            <div id="game-wrapper"></div>
+            <script src="memoria.js"></script>                
+        </section>
+
+
+        <!-- WORDLE - ATIVIDADE 4 -->
+        <section class="wordle-section" id="wordle">
+            <h1>           
+                 Wordle - Versão Doctor Who
+            </h1>
+
+
+                            <div>
+                                <button class='resetBtn' onclick='resetGame()'>Começar Jogo/Resetar</button>
+                <p>Todas as palavras estão em nome de episódio de DW.</p>
+                <div id='game-board'></div>
+                <div id="keyboard">
+                <div class="row">
+                    <button data-key="q" class="">q</button>
+                    <button data-key="w" class="">w</button>
+                    <button data-key="e" class="">e</button>
+                    <button data-key="r" class="">r</button>
+                    <button data-key="t" class="">t</button>
+                    <button data-key="y" class="">y</button>
+                    <button data-key="u" class="">u</button>
+                    <button data-key="i" class="">i</button>
+                    <button data-key="o" class="">o</button>
+                    <button data-key="p" class="">p</button>
+                    
+
+                </div>
+                <div class="row">
+                    <div class="spacer half"></div>
+                    <button data-key="a" class="">a</button>
+                    <button data-key="s" class="">s</button>
+                    <button data-key="d" class="">d</button>
+                    <button data-key="f" class="">f</button>
+                    <button data-key="g" class="">g</button>
+                    <button data-key="h" class="">h</button>
+                    <button data-key="j" class="">j</button>
+                    <button data-key="k" class="">k</button>
+                    <button data-key="l" class="">l</button>
+                    <div class="spacer half"></div>
+
+                </div>
+                <div class="row">    
+                    <button data-key="↵" class="one-and-a-half">enter</button>
+                    <button data-key="z" class="">z</button>
+                    <button data-key="x" class="">x</button>
+                    <button data-key="c" class="">c</button>
+                    <button data-key="v" class="">v</button>
+                    <button data-key="b" class="">b</button>
+                    <button data-key="n" class="">n</button>
+                    <button data-key="m" class="">m</button>    
+                    <button data-key="←" class="one-and-a-half">bksp</button>
+                </div>
+
+                </div>
+            </div>
+
+
+        </section>
+        
+
+        <!-- FORCA - ATIVIDADE 3 -->
+        <section class="forca-section" id="forca">
+        <div>
+            <h1>Jogo da Forca</h1>
+
+            <canvas id="canvas" width="1200" height="800">
+                Seu navegador não suporta CANVAS
+            </canvas>
+        </div>    
+
+        <script src="forca.js"></script>
+        
+        </section>
+
+
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+  <!-- não funciona direto localmente, então é preciso pegar na pasta-->
+    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+    <script src="slick/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+     $(document).on('ready', function() {
+
+        //Configurações do slick - ATIVIDADE 05
+        $('.sliders').slick({
+            speed: 300,
+            slidesToShow: 1, //mostrar apenas um
+            Infinity:true, //fica em loop
+            autoplay:true, //muda sozinho
+            arrows:false, //sem setas
+            // prevArrow: ' <div class="prev-arrow"><i class="fa fa-angle-left"></i> </div>',
+            // nextArrow: ' <div class="next-arrow"><i class="fa fa-angle-right"></i> </div>',
+            adaptiveHeight: true
+            });
+      })
+
+
+    //   wordle - ATIVIDADE 4
+
+    var d = {}
+    const words = ['blink','dalek','world','smile','empty','human','earth','ghost','takes','flood','woman','zygon'] //array com as palavras
+    var the_word;
+
+
+//Iniciar jogo
+function resetGame(){
+  document.querySelector('#game-board').innerHTML = ''
+  document.querySelector('#game-board').dataset.word = words[Math.floor(Math.random()*words.length)] //escolhe a palavra aleatoriamente
+  the_word = document.querySelector('#game-board').dataset.word //acessa os elementos dataset
+
+
+  //ADICIONA LINHA E A CLASSE
+  function addWordRow(){
+    var wr = document.createElement('div')
+    wr.className = 'wordRow'
+    wr.dataset.length = 0
+    if(i == 0) {
+      wr.className = 'wordRow active'    
+    }
+    if(i == 5) {
+      wr.className = 'wordRow lastRow'
+    }
+    wr.dataset.word = ''
+    //CRIA OS QUADRADOS
+    wr.innerHTML = `<div class='letter'></div><div class='letter'></div><div class='letter'></div><div class='letter'></div><div class='letter'></div>`
+    document.querySelector('#game-board').appendChild(wr)
+  }
+
+  for(var i=0;i<6;i++) {
+    addWordRow() //ADICIONA AS 5 LINHAS
+  }
+
+  let btns = document.querySelectorAll('#keyboard button')
+  btns.forEach(function(elm){
+    if(!elm.classList.contains('one-and-a-half'))//verifica se é enter ou bskp pela classe
+      elm.className = ''
+  })
+}
+resetGame()//reseta o jogo
+
+let r_num = 0
+const btn = document.querySelectorAll('#keyboard button')
+const letter_box = document.querySelectorAll('.letter')
+btn.forEach(function(elm){
+    //CRIA EVENTO CLICK NAS LETRAS
+  elm.addEventListener('click', function() {
+    let r = document.querySelector('.active') //seleciona o quadrado ativo
+    let l = elm.dataset.key //letra clicada
+    if(l === '←') {
+        //limpa a letra quando BKSP É CLICADO
+      if(Number(r.dataset.length) > 0) {
+        r.dataset.length = Number(r.dataset.length) - 1
+        r.dataset.word = r.dataset.word.slice(0,-1)
+        r.querySelectorAll('.letter')[r.dataset.length].dataset.letter = ''
+        r.querySelectorAll('.letter')[r.dataset.length].innerText = ''        
+      } 
+    } else if(l === '↵') {
+        //ENTER
+      if(Number(r.dataset.length) == 5) {
+        checkAnswer() //se for igual a 5 checa a resposta
+      }
+    } else {   
+      if(Number(r.dataset.length) < 5) {
+        //   SE QUANTIDADE DE CLICK FOR MENOR QUE 5. ADICIONA A LETRA 
+        r.dataset.word = r.dataset.word + l
+        r.querySelectorAll('.letter')[r.dataset.length].dataset.letter = l
+        r.querySelectorAll('.letter')[r.dataset.length].innerText = l
+        r.dataset.length = Number(r.dataset.length) + 1
+      }        
+    }    
+  })
+})
+
+function checkAnswer() {
+    //verifica a palavra
+  let r = document.querySelector('.active')
+  let letters = the_word.split('') //separa as letras da palavra
+  if(words.includes(r.dataset.word)) {   
+      //se a palavra existe no array
+    for(var i=0;i<letters.length;i++){
+      r.querySelectorAll('.letter')[i].style.transitionDelay = i*250+'ms'      //efeito de transition
+
+      if(letters[i] === r.querySelectorAll('.letter')[i].dataset.letter) {
+        r.querySelectorAll('.letter')[i].classList.add('match') // mudar a cor do quadrado e teclas pra verde se estiver correto
+        document.querySelector('#keyboard button[data-key='+letters[i]+']').classList.add('match')
+      } else if(letters.includes(r.querySelectorAll('.letter')[i].dataset.letter)) {
+        r.querySelectorAll('.letter')[i].classList.add('present') //muda a cor do quadrado e teclas se contém a letra na palavra, mas tá na ordem errada
+        document.querySelector('#keyboard button[data-key='+r.querySelectorAll('.letter')[i].dataset.letter+']').classList.add('present')
+      } else {
+        r.querySelectorAll('.letter')[i].classList.add('absent') //muda a cor do quadrado e teclas se não contém a letra
+        document.querySelector('#keyboard button[data-key='+r.querySelectorAll('.letter')[i].dataset.letter+']').classList.add('absent')
+      }
+    }
+
+    if(r.dataset.word == the_word){
+      setTimeout(function(){
+        // se a palavra montada for a palavra certa
+        alert('VOCÊ GANHOU!')  
+      }, 1500)
+    } else {
+      if(r.classList.contains('lastRow')){
+        setTimeout(function(){
+          alert('VOCÊ PERDEU.')  
+        }, 1500)
+      } else {
+        r.nextSibling.classList.add('active')
+        r.classList.remove('active')
+      }
+    }  
+  } else {
+    // se a palavra não existe no array
+    alert('NÃO CONTÉM NA LISTA.')
+  }
+}
+
+//adiciona evento quando a tecla é pressionada
+window.addEventListener('keydown', function(e){
+  d[e.which] = true;
+  if(d[8]) {
+    document.querySelector('button[data-key="←"]').click()
+  }
+  if(d[13]) {
+    document.querySelector('button[data-key="↵"]').click()
+  }
+})
+window.addEventListener('keyup', function(e){
+  d[e.which] = false;
+})
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

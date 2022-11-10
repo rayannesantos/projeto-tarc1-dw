@@ -1,0 +1,485 @@
+*{ padding: 0;margin: 0;  box-sizing: border-box; }
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&family=Rowdies:wght@300;400;700&display=swap');
+html { scroll-behavior: smooth; }
+
+header{ display: flex; flex-direction: column; align-items: center;}
+body{
+    font-family: 'Inconsolata', monospace;
+    color:#fff;
+    background: rgb(49,59,100);
+    background: linear-gradient(90deg, rgba(49,59,100,1) 29%, rgba(95,75,139,1) 61%, rgba(139,98,133,1) 92%);
+}
+
+
+/*  NAV */
+nav{
+    display: flex;
+    flex-direction: row;
+    /* background-color: #313b64; */
+    background: rgb(139,98,133);
+    background: linear-gradient(90deg, rgba(139,98,133,0.45) 12%, rgba(95,75,139,0.35) 65%, rgba(49,59,100,0.35) 85%);
+    /* opacity: 0.3; */
+    height: 54px;
+    width: 75vw;
+    position: fixed;
+    align-items:center;
+    z-index: 10000;
+    font-size: 16px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;        justify-content: flex-end;
+        font-family: 'Inconsolata', monospace;
+}
+
+
+
+a{ text-decoration: none; color: #fff;}
+
+ul{display: flex; flex-direction: row; list-style: none;}
+
+ul li{ color: #fff;}
+
+
+nav>ul li{line-height: 53px; padding-left: 12px;padding-right: 12px;  transition: 0.3s;}
+
+nav>ul li:hover{
+  opacity: 1;
+  background-color: #5f4b8b;
+}
+
+.slider-01, .slider-02,.slick-slide {
+    width: 100vw; 
+    height: 120vh!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.sliders{
+    background-attachment: fixed;
+}
+.slider-01{background-image: url('../img/teste01.jpeg');}
+
+.slider-02{background-image: url('../img/teste02.jpg');}
+
+
+
+/* slick */
+.prev-arrow.slick-arrow,.next-arrow.slick-arrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 50px;
+    background: #fff;
+    color: #009ee3;
+    visibility: hidden;
+  }
+
+
+.prev-arrow.slick-arrow{
+    position: absolute;
+    z-index: 1000;
+}
+
+.next-arrow.slick-arrow{
+    right: 10px;
+    position: absolute;
+    z-index: 1000;
+}
+
+
+
+
+/* RELÓGIO */
+
+.gradient {
+    /* Primeiro passo: definir um degradê como fundo */
+    background-image: linear-gradient(to bottom, rebeccapurple, #8b6285, #5f4b8b);
+    
+    /* Segundo passo: apagar do fundo tudo que não estiver imediatamente atrás de texto */
+    background-clip: text;
+    -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
+  
+    /* Terceiro passo: apagar o texto, deixando apenas o fundo atrás dele */
+    -webkit-text-fill-color: transparent;
+  
+    /* Cor que contraste com o degradê, caso o navegador não suporte `background-clip: text` */
+    color: black;
+    
+  }
+
+  .slick-slide { height:auto;}
+
+
+.relogio-section{
+    /* background-color: #8e6385; */
+
+    background: rgb(139,98,133);
+    background: linear-gradient(90deg, rgba(139,98,133,1) 12%, rgba(95,75,139,1) 65%, rgba(49,59,100,1) 85%);
+    background-image: url('../img/aLn2cW.png');
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+
+.memoria-section{
+    background: rgb(49,59,100);
+    background: linear-gradient(90deg, rgba(49,59,100,1) 29%, rgba(95,75,139,1) 61%, rgba(139,98,133,1) 92%);
+    background-image: url('../img/teste01.jpeg');
+    background-size: contain;
+    /* background-image: url('../img/qhlfnkjDv5Yu18JROaRWxUojeNNdwLsn58hwGMM2qPw.png'); */
+    background-attachment: fixed;
+    width: 100vw; 
+    height: 100vh;
+
+}
+
+.wordle-section,.forca-section{
+        background: rgb(49,59,100);
+        background: linear-gradient(90deg, rgba(49,59,100,1) 29%, rgba(95,75,139,1) 61%, rgba(139,98,133,1) 92%);
+        /* background-image: url('../img/teste01.jpeg'); */
+        background-size: contain;
+        /* background-image: url('../img/qhlfnkjDv5Yu18JROaRWxUojeNNdwLsn58hwGMM2qPw.png'); */
+        background-attachment: fixed;
+        width: 100vw; 
+        height: 120vh;
+
+}
+
+.forca-section div {
+    width: 65vw;
+    margin: 0 auto;
+}
+
+#canvas{
+    margin-top: 150px;
+}
+
+.texto{
+    width: 63vw;
+    padding: 5vw;
+    margin-top: 10vh;
+    text-align: center;
+
+}
+
+.texto p{
+    margin-top: 10px;
+    text-align: center;
+    padding: 2vw;
+
+}
+
+ h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 53px;
+}
+
+#memoria>h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0;
+}
+
+
+/*-----------------*/
+/* Base do relógio */
+/*-----------------*/
+.relogio {
+    margin-top: 20vh;
+
+    width: 400px;                             /* Largura do container */
+    height: 400px;                            /* Altura do container */
+    display: flex;                 
+    justify-content: center;                  /* alinhamento dos ítens ao longo do eixo principal */
+    align-items: center;
+    /*background: lightgray;*/                /* Cor do background */
+    /* background: #fff url('../img/clock01.jpg');    */
+      /* Imagem no fundo */
+    background-size: cover;                   /* especifica que a imagem cobre todo o fundo (pode indicar tamanho ou "auto") */
+    background-repeat: no-repeat;
+   
+    border-radius: 50%;                       /* Areedondamento das bordas */
+    border: 6px solid #8f85d8;
+    /* border-color:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(143,133,216,1) 72%, rgba(0,212,255,1) 100%);; */
+    /* background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(143,133,216,1) 72%, rgba(0,212,255,1) 100%); */
+   
+ }
+
+
+ /* Cria ponto no meio do relógio */
+ .relogio:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border: 2px solid #000;
+    opacity: 0.8;
+    z-index: 10000;
+    border-radius: 50%;
+}
+
+/*---------------------*/
+/* Segundos do relógio */
+/*---------------------*/
+.seg ,.horas , .min {
+
+position: absolute;
+display: flex;
+justify-content: center;
+position: absolute;
+border-radius: 50%;                         /* Define bordas arredondadas */
+}
+
+
+.seg{width: 249px;
+    height: 380px;}
+.horas{
+    width: 190px;
+    height: 190px;
+}
+.min{
+    width: 249px;
+    height: 249px;
+}
+
+
+
+/* ponteiro dos segundos */
+/* ::before cria um pseudo-elemento que é o primeiro filho do elemento atingido. */
+/* É frequentemente utilizado para adicionar conteúdo decorativo à um element  */
+/* a propriedade content. Este elemento é inline por padrão. */
+.seg::before {
+content: '';
+position: absolute;
+width: 3px;
+height: 200px;
+background: #8e6385;
+z-index: 20;                /* Ordem em que o elemento aparece em relação aos outros itens */
+border-radius: 6px 6px 0 0;
+
+}
+
+
+.horas::before {
+content: '';
+position: absolute;
+width: 3px;
+height: 90px;
+background: #313b64;
+z-index: 10;                /* Ordem em que o elemento aparece em relação aos outros itens */
+border-radius: 6px 6px 0 0;
+}
+
+
+.min::before {
+content: '';
+position: absolute;
+width: 3px;
+height: 120px;
+background: #5f4b8b;
+z-index: 15;                /* Ordem em que o elemento aparece em relação aos outros itens */
+border-radius: 6px 6px 0 0;
+}
+
+
+
+/* JOGO DA MEMÓRIA */
+
+
+#game-wrapper{
+    margin: 30px auto 0;
+    width: 500px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#game-wrapper .grid{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#game-wrapper .cell{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    background-color: #587a78;
+    cursor: pointer;
+    transition: all .5s;
+    position: relative;
+    transform-style: preserve-3d;
+    color: #ddd;
+}
+
+#game-wrapper .cell::after {
+    width: 100%;
+    height: 100%;
+    background-color: #5f4b8b;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotateY(180deg);
+}
+
+#game-wrapper .cell.hide {
+    transform: rotateY(180deg);
+}
+
+#game-wrapper .info-panel{
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+#game-wrapper .info-panel .red{
+    color: #8e6385;
+}
+#game-wrapper .info-panel .green{
+    color: #313b64;
+}
+
+
+
+
+/* WORDLE */
+
+
+.wordle-section {
+    min-height: 130vh;
+    display: grid;
+    place-items: center;
+    background: #313b64;
+    font-family: system-ui, sans-serif;
+    color: lightgray;
+    text-align: center;
+  }
+  
+  /* body {
+    max-width: 700px;
+  }  */
+#gameboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .wordRow {  
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    margin: .5rem 0;
+  }
+  .letter {
+    width: 75px;
+    height: 75px;
+    outline-offset: -2px;
+    outline: 2px solid #8f85d8;
+    padding: 1rem 1.25rem;
+    font-size: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: white;
+    text-transform: uppercase;
+    user-select: none;
+    transition: .75s;
+  }
+  .letter:before {
+    content: 'A';
+    color: transparent;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    font-size: 0;
+  }
+  
+  #keyboard {
+    margin: 0 8px;
+    user-select: none;
+  }
+  .row {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 8px;
+    touch-action: manipulation;
+  }
+  button {
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    margin: 0 6px 0 0;
+    height: 58px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #8e6385;
+    color: white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+  }
+  .one-and-a-half {
+    flex: 1.5;
+    font-size: 12px;
+  }
+  
+  .match {
+    background: MediumSeaGreen !important;
+    outline: 0;
+  }
+  .present {
+    background: DarkKhaki;
+    outline: 0;
+  }
+  .absent {
+    background: #111;
+    outline: 0;
+  }
+  
+  .active {
+    /*   outline: 1px dashed red; */
+  }
+  
+  .resetBtn {
+    height: auto;
+    opacity: .5;
+    padding: .5rem 1rem;
+    transition: .5s;
+  /*   position: absolute;
+    top: 1rem;
+    right: 1rem; */
+    margin: 1rem auto;
+  }
+  .resetBtn:hover {
+    opacity: 1;
+  }
+
+
+
